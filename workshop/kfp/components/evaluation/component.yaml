@@ -8,7 +8,7 @@ outputs:
 
 implementation:
   container:
-    image: eu.gcr.io/motorway-ml6/alexb/evaluation:latest
+    image: eu.gcr.io/smart-amplifier-343007/thomasdehaene/evaluation:latest
     command:
     - python
     - -m

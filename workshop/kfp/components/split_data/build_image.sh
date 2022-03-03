@@ -15,7 +15,6 @@ esac; shift; done
 
 # Set global variables
 REGION="europe-west1"
-PROJECT_ID="motorway-ml6"
 
 # Build trainer image
 IMAGE_NAME="split_data"

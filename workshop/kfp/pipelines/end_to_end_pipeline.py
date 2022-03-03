@@ -26,7 +26,7 @@ def get_end_to_end_pipeline(name: str):
         bq_table_name: str = 'covertype_dataset.covertype',
         target_col: str = 'Cover_Type',
         test_size: float = 0.2,
-        n_estimators: int = 300,
+        n_estimators: int = 10,
         learning_rate: float = 0.1,
         scale_pos_weight: str = 'FALSE'
     ):

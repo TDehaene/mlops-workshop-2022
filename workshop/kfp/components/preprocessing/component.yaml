@@ -13,7 +13,7 @@ inputs:
     default: Cover_Type
 implementation:
   container:
-    image: eu.gcr.io/motorway-ml6/alexb/preprocessing:latest
+    image: eu.gcr.io/smart-amplifier-343007/thomasdehaene/preprocessing:latest
     command:
       [
         python,

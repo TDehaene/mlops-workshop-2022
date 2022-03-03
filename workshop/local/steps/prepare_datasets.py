@@ -2,9 +2,9 @@ import pandas as pd
 from google.cloud import bigquery
 
 
-def prepare_datasets(bq_table_name, gcs_output_path, target_col):
+def prepare_datasets(bq_table_name, gcs_output_path, target_col, project):
     # Construct a BigQuery client object.
-    client = bigquery.Client(project="teak-backup-317206", location="EU")
+    client = bigquery.Client(project=project, location="EU")
 
     # Load data from bigquery
     query = f'SELECT * FROM `{bq_table_name}`'

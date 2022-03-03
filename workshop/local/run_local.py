@@ -8,7 +8,7 @@ from train_evaluate import train_evaluate
 
 def run(gcs_bucket, run_name):
     gcs_run_path = f'gs://{gcs_bucket}/{run_name}'
-    prepare_datasets(config.DATASET_NAME, gcs_run_path, config.TARGET_COL)
+    prepare_datasets(config.DATASET_NAME, gcs_run_path, config.TARGET_COL, config.PROJECT)
 
     for cover_type in gcs_list_dir(gcs_bucket, run_name):
         gcs_csv_path = f'{gcs_run_path}/{cover_type}/raw_data.csv'

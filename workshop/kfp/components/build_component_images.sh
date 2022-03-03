@@ -4,6 +4,7 @@
 set -o errexit -o pipefail -o noclobber -o nounset
 
 # Argument parsing
+
 while [[ "$#" -gt 0 ]]; do case $1 in
   -n|--name) name="$2"; shift;;
   *) echo "Unknown parameter passed: $1"; exit 1;;

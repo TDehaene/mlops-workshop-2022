@@ -10,7 +10,7 @@ inputs:
   - name: n_estimators
     description: XGBoost n_estimators hyperparameter
     type: Integer
-    default: 100
+    default: 10
   - name: learning_rate
     description: XGBoost learning_rate hyperparameter
     type: Float
@@ -21,7 +21,7 @@ inputs:
     default: TRUE
 implementation:
   container:
-    image: eu.gcr.io/motorway-ml6/alexb/training:latest
+    image: eu.gcr.io/smart-amplifier-343007/thomasdehaene/training:latest
     command:
       [
         python,
