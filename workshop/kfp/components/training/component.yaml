@@ -1,0 +1,39 @@
+name: Training
+description: Train XGBoost model on covertype data
+inputs:
+  - name: gcs_input_path
+    description: GCS path where train data is stored
+    type: String
+  - name: gcs_output_path
+    description: GCS path where trained model will be stored
+    type: String
+  - name: n_estimators
+    description: XGBoost n_estimators hyperparameter
+    type: Integer
+    default: 100
+  - name: learning_rate
+    description: XGBoost learning_rate hyperparameter
+    type: Float
+    default: 0.1
+  - name: scale_pos_weight
+    description: Whether to calculate XGBoost scale_pos_weight hyperparameter based on the ratio of pos vs neg samples
+    type: String
+    default: TRUE
+implementation:
+  container:
+    image: eu.gcr.io/motorway-ml6/alexb/training:latest
+    command:
+      [
+        python,
+        main.py,
+        --gcs_input_path,
+        { inputValue: gcs_input_path },
+        --gcs_output_path,
+        { inputValue: gcs_output_path },
+        --n_estimators,
+        { inputValue: n_estimators },
+        --learning_rate,
+        { inputValue: learning_rate },
+        --scale_pos_weight,
+        { inputValue: scale_pos_weight },
+      ]

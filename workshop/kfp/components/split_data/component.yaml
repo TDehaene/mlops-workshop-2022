@@ -1,0 +1,27 @@
+name: Split data
+description: Split dataset in train and test set
+inputs:
+  - name: gcs_input_path
+    description: GCS path to the input csv file
+    type: String
+  - name: gcs_output_path
+    description: GCS path where train and test splits will be stored
+    type: String
+  - name: test_size
+    description: Fraction of the data to set aside as test set
+    type: Float
+    default: 0.2
+implementation:
+  container:
+    image: eu.gcr.io/motorway-ml6/alexb/split_data:latest
+    command:
+      [
+        python,
+        main.py,
+        --gcs_input_path,
+        { inputValue: gcs_input_path },
+        --gcs_output_path,
+        { inputValue: gcs_output_path },
+        --test_size,
+        { inputValue: test_size },
+      ]

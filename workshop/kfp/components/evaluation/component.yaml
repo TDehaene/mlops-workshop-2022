@@ -1,0 +1,25 @@
+name: Evaluation
+description: Evaluate XGBoost model on covertype data
+inputs:
+  - {name: gcs_input_path, description: GCS path where test data is stored, type: String}
+outputs:
+  - {name: metric, type: Metrics}
+  - {name: html_metadata, type: HTML}
+
+implementation:
+  container:
+    image: eu.gcr.io/motorway-ml6/alexb/evaluation:latest
+    command:
+    - python
+    - -m
+    - kfp.v2.components.executor_main
+    - --component_module_path
+    - evaluation.py
+    - $@
+
+    args:
+    - --executor_input
+    - executorInput: null
+    - --function_to_execute
+    - evaluate_model
+

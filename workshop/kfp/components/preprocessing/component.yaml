@@ -1,0 +1,27 @@
+name: Preprocessing
+description: Preprocess input data before model training
+inputs:
+  - name: gcs_input_path
+    description: GCS path to the input train and test csv files
+    type: String
+  - name: gcs_output_path
+    description: GCS path where preprocessed train and test data and fitted preprocessor will be stored
+    type: String
+  - name: target_col_prefix
+    description: Prefix of the column to be predicted
+    type: String
+    default: Cover_Type
+implementation:
+  container:
+    image: eu.gcr.io/motorway-ml6/alexb/preprocessing:latest
+    command:
+      [
+        python,
+        main.py,
+        --gcs_input_path,
+        { inputValue: gcs_input_path },
+        --gcs_output_path,
+        { inputValue: gcs_output_path },
+        --target_col_prefix,
+        { inputValue: target_col_prefix },
+      ]

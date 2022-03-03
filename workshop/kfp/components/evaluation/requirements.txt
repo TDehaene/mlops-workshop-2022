@@ -1,0 +1,7 @@
+fire==0.3.1
+google-cloud-storage==1.33.0
+numpy==1.19.4
+scikit-learn==0.23.2
+xgboost==1.2.1
+kfp==1.8.11
+fsspec==2021.11.0

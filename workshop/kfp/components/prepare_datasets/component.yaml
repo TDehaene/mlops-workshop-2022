@@ -1,0 +1,32 @@
+name: Prepare datasets
+description: Prepare datasets from BigQuery
+inputs:
+  - name: bq_table_name
+    description: Name of the BigQuery table where data is stored
+    type: String
+  - name: gcs_output_path
+    description: GCS path where datasets will be stored
+    type: String
+  - name: target_col
+    description: Column that serves as target to be predicted
+    type: String
+    default: Cover_Type
+  - name: project_id
+    description: GC Project ID for BigQuery Client
+    type: String
+implementation:
+  container:
+    image: eu.gcr.io/motorway-ml6/alexb/prepare_datasets:latest
+    command:
+      [
+        python,
+        main.py,
+        --bq_table_name,
+        { inputValue: bq_table_name },
+        --gcs_output_path,
+        { inputValue: gcs_output_path },
+        --target_col,
+        { inputValue: target_col },
+        --project_id,
+        { inputValue: project_id },
+      ]
