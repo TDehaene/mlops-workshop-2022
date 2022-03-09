@@ -101,7 +101,7 @@ along with information about how these components are connected and what resourc
 To compile and deploy your pipeline, run:
 
 ```
-python deploy_pipeline.py --identifier=[YOUR-NAME]
+python deploy_pipeline.py --name=[YOUR-NAME]
 ```
 
 ### Running the pipeline
