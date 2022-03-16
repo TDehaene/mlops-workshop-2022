@@ -1,6 +1,6 @@
 # Set global variables
-REGION="europe-west4"
-PROJECT_ID="teak-backup-317206"
+REGION="europe-west1"
+PROJECT_ID="smart-amplifier-343007"
 
 # Build trainer image
 IMAGE_NAME="trainer_image"
